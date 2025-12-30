@@ -1,0 +1,21 @@
+[
+  {
+    "id": "unlock",
+    "name": "Unlock Account",
+    "subject": "Account Unlock Request - [User ID]",
+    "body": "Dear Helpdesk Team,\n\nPlease unlock the account for the following user: [User ID].\n\nThis user is currently unable to log in.\n\nThank you,\n\n"
+  },
+  {
+    "id": "extend",
+    "name": "Extend Account Expiration",
+    "subject": "Account Extension Request - [User ID]",
+    "body": "Dear Helpdesk Team,\n\nPlease extend the expiration date for the following user account: [User ID].\n\nThe new requested expiration date is [Date].\n\nThank you,\n\n"
+  }
+  ,
+  {
+    "id": "extensao_conta",
+    "name": "Extensão de Conta (PT)",
+    "subject": "Extensão de Conta - Usuário [USER_NAME] - [TICKET]",
+    "body": "Prezada Equipe de TI,\n\nEste e-mail refere-se à solicitação do ticket [TICKET].\nSolicitamos, por gentileza, que procedam com a extensão da conta para o seguinte usuário:\n- Nome: [USER_NAME]\n- E-mail: [USER_EMAIL]\n\nPor favor, aplicar o período padrão de extensão conforme as políticas internas, ou consultem os detalhes adicionais fornecidos no ticket, caso haja.\n\nAgradecemos a atenção e solicitamos que nos informem assim que a extensão da conta for concluída.\n\nAtenciosamente,\nEquipe de Suporte | Helpdesk\n"
+  }
+]

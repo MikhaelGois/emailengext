@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Helpdesk Email Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <h1>AI Helpdesk Email Assistant</h1>
+    <div style="margin-bottom:8px;">
+        <button id="openSidebarBtn">Open Sidebar</button>
+    </div>
+
+    <div class="input-group api-key-section">
+        <label for="geminiApiKey">Gemini API Key:</label>
+        <input type="password" id="geminiApiKey" placeholder="Enter your Gemini API Key">
+        <button id="saveApiKey">Save API Key</button>
+        <span id="apiKeyStatus" class="status-message"></span>
+    </div>
+    <button id="editApiKeyButton" style="display: none;">Edit API Key</button>
+
+    <div class="input-group email-request-section">
+        <label for="observations">Observações (opcional):</label>
+        <div class="small-fields">
+            <label for="templateSelect">Template:</label>
+            <select id="templateSelect">
+                <option value="">(None)</option>
+            </select>
+            <div class="template-controls" style="margin-top:6px;">
+                <button id="addTemplate">Add</button>
+                <button id="editTemplate">Edit</button>
+                <button id="deleteTemplate">Delete</button>
+            </div>
+            <div id="templatePreview" style="margin-top:6px;border:1px solid #eee;padding:6px;background:#fafafa;display:none;">
+                <strong>Template Preview</strong>
+                <div><em>Subject:</em> <span id="tplPreviewSubject"></span></div>
+                <div><em>Body:</em><pre id="tplPreviewBody" style="white-space:pre-wrap"></pre></div>
+            </div>
+            <label for="temaInput">Tema / Assunto (opcional):</label>
+            <input type="text" id="temaInput" placeholder="Assunto desejado (opcional)">
+            <label for="ticketInput">Número do ticket (opcional):</label>
+            <input type="text" id="ticketInput" placeholder="e.g., INC123456">
+            <label for="userInput">Usuário (opcional):</label>
+            <input type="text" id="userInput" placeholder="e.g., Karina Santos">
+            <label for="userEmailInput">Email do usuário (opcional):</label>
+            <input type="email" id="userEmailInput" placeholder="e.g., karina.santos@ext.luxottica.com">
+        </div>
+        <textarea id="observations" placeholder="e.g., Usuário espelho: João; Remover grupos: grupoA, grupoB; Observação adicional"></textarea>
+        <button id="generateEmail">Generate Email</button>
+    </div>
+
+    <div class="output-section">
+        <h2>Generated Email:</h2>
+        <div class="generated-field">
+            <strong>Subject:</strong> <span id="generatedSubject"></span>
+        </div>
+        <div class="generated-field">
+            <strong>Body:</strong> <pre id="generatedBody"></pre>
+        </div>
+        <div class="copy-buttons">
+            <button id="copySubject" disabled>Copy Subject</button>
+            <button id="copyBody" disabled>Copy Body</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
