@@ -51,14 +51,53 @@ This Chrome extension helps automate the process of writing standardized helpdes
 5.  **Email Fields Populated**:
     The extension will attempt to find and fill the subject and body fields on your current webpage with the generated email content. A confirmation message will appear in the browser's console (F12 > Console) indicating success or failure.
 
-6.  **Review and Send**:
-    Review the pre-filled email on the webpage, make any necessary adjustments, and then send it.
+## Assistente de Emails Helpdesk (Extensão Chrome)
 
-## Troubleshooting
+Esta extensão para Chrome ajuda a gerar e preparar e-mails padronizados para o time de suporte (helpdesk). Ela permite escolher templates, adicionar observações e copiar o assunto e corpo gerados para a área de transferência.
 
--   **Fields Not Filling**:
-    The extension tries to intelligently find common subject and body input fields. If your helpdesk system uses unusual field names or structures, the extension might not be able to find them. In `popup.js`, the `fillEmailFields` function contains the logic for identifying fields. You might need to inspect the HTML of your helpdesk page and modify the selectors in `popup.js` to match your specific system's input fields (e.g., `input[name="ticket_subject"]`, `textarea[id="ticket_description"]`).
--   **"Error loading templates"**:
-    Ensure `templates.json` is in the same directory as `manifest.json`.
--   **Extension Not Appearing**:
-    Double-check that developer mode is enabled and you've selected the correct folder when clicking "Load unpacked".
+### Funcionalidades
+
+- Templates pré-definidos (ex.: desbloqueio de conta, extensão de acesso).
+- Substituição de placeholders por valores informados (usuário, ticket, e-mail).
+- Geração de assunto e corpo usando um modelo de linguagem.
+- Copiar separadamente o assunto ou o corpo para a área de transferência.
+- Gerenciar templates (adicionar/editar/excluir) via popup.
+- Abrir a interface em uma janela separada (estilo sidebar) para uso contínuo.
+
+### Instalação (Modo Desenvolvedor)
+
+1. Abra o Chrome e navegue para `chrome://extensions`.
+2. Ative o `Developer mode` no canto superior direito.
+3. Clique em `Load unpacked` e selecione a pasta desta extensão (a pasta raiz onde estão `manifest.json`, `popup.html`, etc.).
+4. A extensão aparecerá na lista; você pode fixá-la na barra de ferramentas.
+
+### Uso
+
+1. Abra a página do sistema de helpdesk onde você normalmente envia solicitações.
+2. Clique no ícone da extensão para abrir o popup.
+3. Preencha os campos opcionais: `Tema`, `Número do ticket`, `Usuário`, `E-mail do usuário` e `Observações`.
+4. Se desejar, selecione um `Template` para orientar o formato do e-mail.
+5. Clique em `Generate Email` para gerar o assunto e o corpo.
+6. Use `Copy Subject` e `Copy Body` para copiar cada parte separadamente e colar nos campos correspondentes do sistema.
+
+### Gerenciar Templates
+
+- `Add`: cria um template personalizado salvo no armazenamento local do navegador.
+- `Edit`: edita um template personalizado ou clona um template padrão para edição.
+- `Delete`: remove templates personalizados.
+
+Os templates padrão estão em `templates.json`. Templates personalizados são salvos em `chrome.storage.local`.
+
+### Observações e Resolução de Problemas
+
+- Se o assunto aparecer dentro do corpo gerado, revise o texto gerado no popup e use `Copy Subject` e `Copy Body` para colar manualmente nos campos corretos do seu sistema.
+- Se precisar adaptar a extensão para o layout do seu sistema (ex.: seletores específicos de campos), abra `popup.js` e ajuste os seletores usados para localizar os campos do formulário.
+- O arquivo `templates.json` contém exemplos; edite ou adicione novos templates conforme necessário.
+
+### Contribuições
+
+Contribuições são bem-vindas — abra issues ou envie pull requests no repositório.
+
+### Licença
+
+Escolha e adicione uma licença apropriada (ex.: MIT) no arquivo `LICENSE` caso deseje publicar com uma licença específica.
